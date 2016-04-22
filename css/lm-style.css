@@ -1,0 +1,41 @@
+.lm-mapview {
+  min-height: 66%;
+}
+
+.mini-dash {
+  background-color: darkgrey;
+}
+
+.team-pane-data,
+.dash-player-icon {
+  text-align: center;
+}
+
+.dash-game-status {
+  border-bottom: 1px solid black;
+}
+
+.game-counter>.icon-container {
+  float: left;
+  width: 33%;
+}
+
+.game-counter>.status-info {
+  float: left;
+  width: 67%;
+  font-family: courier;
+  font-size: x-small;
+}
+
+.status-info {
+  text-align: center;
+}
+
+.minimize-bar {
+  float: right;
+}
+
+.team-pane {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
