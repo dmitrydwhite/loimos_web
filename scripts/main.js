@@ -146,12 +146,34 @@ var App = React.createClass({
     };
   },
 
+  orderUpdates: function (updates, newView) {
+    var top = [];
+    var restArray = [];
+    var sorted = [];
+
+    if (newView === 'neutral') {
+      sorted = updates;
+    } else {
+      updates.forEach(function (update) {
+        if (update.type === newView) { 
+          top.push(update);
+        } else {
+          restArray.push(update);
+        }
+
+        sorted = top.concat(restArray);
+      });
+    }
+
+    return sorted;
+  },
+
   goToView: function (view) {
     if (panelViews[view]) {
       this.state.panelView = view;
       this.setState({
         panelView: this.state.panelView,
-        updates: this.state.updates
+        updates: this.orderUpdates(this.state.updates, view)
       });
     }
   },
@@ -355,7 +377,7 @@ var MapPanel = React.createClass({
     return (
       <div>
         <UpdateBar currentView={this.props.currentView} goToView={this.props.goToView} type="map" />
-        <div id="lm-map-view" style={{width: '100%', height: '300px'}}></div>
+        <div id="lm-map-view" style={{width: '100%', height: '500px'}}></div>
       </div>
     )
   }
