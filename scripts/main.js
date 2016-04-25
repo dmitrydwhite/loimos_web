@@ -341,11 +341,21 @@ var UpdateBar = React.createClass({
  * MapPanel React Component
  */
 var MapPanel = React.createClass({
+  componentDidMount: function () {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZG1pdHJ5ZHdoaXRlIiwiYSI6InhpaHVObTAifQ.36E6lf4fSTduEtzPaDrd4w';
+    var map = new mapboxgl.Map({
+      container: 'lm-map-view',
+      style: 'mapbox://styles/mapbox/dark-v8',
+      minZoom: 2,
+      maxZoom: 6
+    });
+  },
+
   render: function () {
     return (
       <div>
         <UpdateBar currentView={this.props.currentView} goToView={this.props.goToView} type="map" />
-        MapPanel
+        <div id="lm-map-view" style={{width: '100%', height: '300px'}}></div>
       </div>
     )
   }
